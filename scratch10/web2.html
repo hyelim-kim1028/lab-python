@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web 2</title>
+    <!-- 이 이름은 brower's tab 에서 보인다 -->
+    <style>
+        /*
+        CSS(Cascade Style Sheet)
+        웹(HTML) 문서의 스타일(화면 배치, 색상, 폰트 ...) 을 결정
+
+        /**/ 는 CSS의 주석이고, 우리는 지금 CSS를 HTML 파일안에 쓰는 중!
+        <%----%> 는 JSP의 주석
+        */
+
+        /*
+        CSS selector (선택자)
+           스타일의 내용을 HTML 내용안에있는 element 에 적용 (i.e. li).
+           스타일을 적용하기위해서 HTML 요소를 찾는 방법이 CSS selector 이다
+
+            1) HTML 태그 이름
+            2) .class
+            3) #id
+            4) pseudo selector
+            */
+
+        li {
+            list-style-type: none; /* bullet 이미지 제거 */
+            display: inline-block; /* 요소들을 한 줄에 표시/ 가로로 정렬됨 */
+        }
+        a{
+            text-decoration: none; /* 링크의 밑줄을 제거 */
+        }
+        a:visited{/* 방문 했었던 링크 */
+            color: black;
+        } /* 보통의 링크들은 마우스를 위에 올리면 변화되는 것이 눈에 보이지만, 이 값을 주면 일정한 색을 유지한다;
+            이런 것들을 pseudo selector 이라고 일컫는다
+            A pseudo-class is used to define a special state of an element. (a: event)
+            For example, it can be used to:
+            Style an element when a user put mouses over it
+            Styles visited and unvisited links differently
+            Style an element when it gets focus
+            */
+        .class1{
+            color: blue; /*글자색*/
+            border: 2px solid gray; /*테두리 선*/
+            margin: 16px; /*바깥 여백*/
+            padding: 8px; /*안쪽 여백*/
+        } /* . 을 붙여줘야 찾아간다 -> 그래서 class1 이라는 아이들 2가지를 다 찾아서 명령대로 만들어줌 */
+        #id1{
+            color: red;
+            font-weight: bold;
+        }
+    </style> <!-- none 을 넣어주니까 앞에 dot들이 없어짐  -->
+</head>
+<body>
+    <h1> 두번째로 만드는 html </h1>
+    <!-- list (i.e. 실시간 검색어)-->
+        <!-- ul: unordered list -> ul 은 dot 으로, ol은 숫자로 정리되서 리스트가 나타난다 -->
+    <!--list item-->
+    <!-- <li> Google </li>
+    <li> Naver </li>
+    <li> Daum </li> -->
+
+    <!-- a. anchor 링크 -->
+
+    <!-- how to put a link in a list -->
+    <li>
+        <a href = "https://www.google.com"> 구글 </a>
+        </li>
+    <li>
+        <a href = "https://www.naver.com"> 네이버 </a>
+        </li>
+    <li>
+        <a href = "https://www.daum.net"> 다음 </a>
+        </li>
+    </ul>
+
+    <div class = "class1"> 여기는 class1입니다 </div>
+    <div class = "class1"> 여기는 class1입니다 </div>
+    <div class = "class2"> 여기는 class2입니다 </div>
+    <div class = "class2" id = "id1"> 여기는 class2입니다 </div>
+    <!-- class 라는 attribute이고, 이것은 어떤 속성이든 다 줄 수 있다   -->
+    <!-- class 이름은 겹쳐도 되지만, id이름은 가능하면 겹치지 않는게 좋다; 안되는건 아니지만 it's supposed to be used like a PK -->
+
+
+</body>
+</html>

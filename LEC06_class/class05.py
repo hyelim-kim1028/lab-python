@@ -13,9 +13,26 @@ class rectangle:
     def info(self):
         print(f'Rectangle(w={self.width}, h = {self.height})')
 
+    #면적을 계산하는 함수
+    def area(self):
+        # 여기서 다시 width 랑 height 를 선언해주지 않아도 된다 (모두 self에 들어있음)
+        return self.width * self.height
+
+# == 연산자를 사용했을 때 자동으로 호출되는 메소드
     def __eq__(self, other): #eq as equal
         return self.width == other.width and\
                self.height == other.height
+
+    # method 중에 __ 로 시작하고, 끝나는 모든 클래스가 가지고 있는 매소드들이 있다 se llaman 'predefined'
+
+# 객체의 내용을 프린트 할 때 자동으로 호출되는 메소드
+    def __str__(self): #string (문자열)
+        # return f'<{__name__}.rectangle object at {self}>' #__name__ = 모듈이름
+        # return f'<{__name__}.직사각형_객체_주소 object at {self}>' #RecursionError: maximum recursion depth exceeded while calling a Python object
+        # return f'<{__name__}. 직사각형 객체 주소>'
+    # 주소값을 개발자가 마음대로 사용할 수 없게 해놔서 이럼 ㅜㅠ 엉엉엉
+    # 출력의 형태를 우리가 원하는대로 할 수 있다
+        return f'<직사각형 가로 = {self.width}, 세로 = {self.height}>'
 
 
 if __name__ == '__main__':
@@ -45,7 +62,7 @@ if __name__ == '__main__':
 
 # rect 5 and 6 are the same rectangles; 메모리에 똑같은 값이 있지만 재사용하지 않고 새로 만든다
 # 모양은 똑같이 생겼지만 다른 변수로써 다른 주소값을 갖는다
-print(id(rect5)) #2159641968456
+print(id(rect5)) #2159641968456 => 10진수
 print(id(rect6)) #2159641972872
 # they have different id serials
 # 숫자나 문자열은 재사용하지만 그 외에 다른 모든 클래스들은 생성자를 호출할 때 마다 다른 주소에다가 다른 객체를 만들어 낸다
@@ -68,5 +85,16 @@ print(rect5.__eq__(rect6)) #True
 # 개발자가 __eq__ 메소드를 다른 방식으로 작성하면 == 연산자는 개발자의 의도대로 True/False 를 리턴하게 됨
 # 위에 우리가 함수를 정의한것 처럼
 
+# Area 함수 프린트해보기
+print('rect5 넓이:', rect5.area())
+print('rect6 넒이:', rect6.area())
 
+print(rect5)
+#<__main__.rectangle object at 0x0000025EF9157548>
+# __str__을 바꿔준 다음에 프린트물이 <직사각형 가로 = 2, 세로 = 3> 이렇게 출력된다 OhohoH
+# 어떤 객체를 출력하려고 하면 모듈이름(__main__). 클래스이름(rectangle) 오브젝트이다 at 0x0000025EF9157548 (주소) => 알파벳이 있는 16진수
+# 숫자와 문자를 제외한 다른 클래스는 이렇게 출력해주기로 약속했다 !^0^!
+# 이런 <__main__.rectangle object at 0x0000025EF9157548> 걸 만들어주는게 __str__ 메소드
+print(id(rect5)) #2159641968456 => 10진수
+# 둘은 사실 같은 숫자 ~ ^.~* (windows 계산기 -> 메뉴 -> 프로그래머용 계산기)
 

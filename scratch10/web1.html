@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!--메타는 끝나는 테그가 없당-->
+    <title>web 1</title>
+</head>
+<body>
+    <!-- 주석(comment): HTML 문서에 대한 설명
+     tag: html, body, h1, p, div, img ... 등등
+        : start 태그와 end 태그가 짝을 이룸
+        : 이걸 없애도 에러가 안날 수도 있다.
+        : 표준은 관계성이 없다. 표준을 가장 잘 지켜주는 브라우져: 크롬, 파이어폭스
+     attribute: 태그 안에서 속성들을 설정하기 위해서 사용
+        i.e. meta 태그의 charset,a 의 href, img의 src, 등등
+     content: start tag와 end tag 사이의 내용들
+           예) body 에게는 <h1> ~ </a> 까지가 content;
+               content 를 사용하지 않는 테그들도 있다 (i.e. meta) <meta content /> 그냥 끝난다고 / 써주고 끝남
+              - 상위 감싸고 있는 태그를 부모태그(parent tag), 그 사이에 있는 태그들을 자식 태그(child tag)라고 하고.
+              - 이 태그들 사이에도 계층 구조가 있다 (hierarchy)
+      문서의 계층구조 (hierarchy): DOM (Document Object Model) 이라고 부른다
+      Browser: Chrome, IE, Firefox, Internet Explorer .. 는 HTML 문서를 분석해서 화면에 보여줌
+     -->
+    <h1> 처음 작성하는 HTML</h1>
+    <h2> HTML: HyperText Markup Language </h2>
+    <!-- h1 ~ h6: h1 being the biggest and h6 the smallest. fonts in tag h are in bold -->
+    <p> 여기는 <b>paragraph</b> 입니다. </p>
+    <!-- paragraph became bold (until HTML4),   <strong> </strong> / semantic tag (tag with a meaning) -->
+    <div> 여기는 <strong>division</strong> 입니다. </div>
+    <!-- strong 이라고 줘도, b로 양쪽을 감싸는 것과 같은 효과를 준다 -->
+    <!-- p: 여백/ 마진을 갖고 있는 엘리먼트;
+        div: 마진, 패딩 아무것도 없음; 많이 쓰임 -> 화면에 영역과 영역을 나눠주기위해 사용
+            : 웹 페이지의 구조를 잡는다 -->
+    <a href = "https://www.daum.net/">다음 카카오 </a>
+    <br/> <!-- 이제 링크와 이미지가 분리되어 보인다 / 줄바꿈 = </br>; br for break -->
+    <img src="img.png" style = "width: 400px;" />
+    <br/>
+    <!-- 아래와 같이 코딩하면, 이미지를 타고 링크로 들어갈 수 있다 -->
+    <a href = "https://www.daum.net"> 다음
+        <img src = "img.png" style = "with: 400px;" />
+    </a>
+
+    <!-- HTML은 줄바꿈을 자동으로 적용해주지 않는다 (블록 레벨 테그/ 자동으로 줄바꿈) (인라인 테그/ 한줄에 들어간다 i.e. <a>) -->
+    <!-- 여기서 백날 엔터쳐봤자 실제 화면에는 엔터 적용 안됨 ^^;;
+         HTML 특성상 원본 소스와는 상관 없이 줄바꿈은 테그를 이용해서 넣어주어야한다 (테그사용)
+         모든 공백은 공백 1개로 생각한다 -->
+    <!-- 파란색: content; 초록색: padding -->
+</body>
+</html>
+<!-- those inside <> are called tags and tags should be in pair: start tag <> and end tag </> -->
+<!-- 타이틀을 제외하고 브라우저에서 explicitly 하게 보이지 않는다 -->
+<!--head = 메타정보들을 담고 있다 (i.e. 스타일, 글꼴 과 같은 정보 선언)  -->
+

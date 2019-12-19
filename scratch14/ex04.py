@@ -108,12 +108,66 @@ def divide(x,y):
             x[n,m] * y[n,m]
     return x/y
 
+# my_solution
+# def dot(x,y):
+#     dot_sum = 0
+#     for s in range(len(x)):
+#         dot_sum += multiply[s]
+#         for n in range(len(x)):
+#             for m in range(len(y)):
+#                 multiply = x[n, m] * y[n, m]
+#     return dot_sum
+#
+# print(f'dot_sum = {dot(array1,array2)}')
 
-def dot(x,y):
-    pass
+# teacher's solution
+# 앞에 있는 행렬의 컬럼 갯수와 뒤에있는 행렬의 열의 갯수가 같아야 dot product이 가능하다
+# def my_dot(A, B):
+#     """ 두 행렬 A와 B의 dot 연산 결과를 리턴
+#         dot_ik = sum[a_ij * b_jk] """
+#     print('A.shape =',A.shape) # tuple 형태로 되어 있어서 shape함수 사용이 가능했다
+#     print('B.shape =',B.shape)
+#     if A.shape[1] != B.shape[0]:
+#         raise ValueError('A의 column과 B의 row 개수는 같아야 함!')
+#     n_row = A.shape[0]     # dot 결과 행렬의 row 개수
+#     n_col = B.shape[1]     # dot 결과 행렬의 column 개수
+#     # dot product의 결과는 첫번째 행렬의 row 갯수과 nrow가 되고, 두번째 행렬의 column개수가 column 개수가 된다
+#     temp = A.shape[1] # 각 원소들끼리 곱한 결과를 더하는 회수 # 앞의 행렬의 컬럼 갯수 = 뒤의 행렬의 row 개수
+#     numbers = [] #결과값들을 저장할 리스트
+#     for i in range(n_row): # A행렬의 row 개수만큼 반복
+#         for k in range(n_col): #B 행렬의 column 개수만큼 반복
+#             n = 0
+#             for j in range(temp):
+#                 # dot 결과 행렬의 [i, k]번째 원소의 값을 계산
+#                 n += A[i, j] * B[j, k]
+#             numbers.append(n) #[i, j] 번째 원소를 리스트에 추가
+#     # 결과를 (i, k) 모양의 행렬로 변환해서 리턴
+#     return np.array(numbers).reshape(n_row, n_col)
 
 
-print(divide(array1, array2))
+# Method B
+def my_dot(A, B):
+    if A.shape[1] != B.shape[0]:
+        raise ValueError('A의 column과 B의 row 개수는 같아야 함!')
+    n_row = A.shape[0]
+    n_col = B.shape[1]
+    temp = A.shape[1]
+    result = np.zeros((n_row, n_col)) # 변수 하나에 row와 column을 줘야하기 때문에 tuple로 묶는다; 원소들은 모두 0으로 채워진다
+    for i in range(n_row):
+        for k in range(n_col):
+            n = 0
+            for j in range(temp):
+                n += A[i, j] * B[j, k]
+            result[i,k] = n
+    return result
+
+
+
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+print(my_dot(A, B))
+print(A @ B) # numpy array에서 @을 사용하면 dot을 해준다
 
 """
 항등 행렬(Indentity matrix): 대각선의 원소는 1이고, 나머지 원소는 0인 정사각행렬 
